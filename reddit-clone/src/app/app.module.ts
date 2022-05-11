@@ -9,6 +9,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SubredditSideBarComponent } from './components/subreddit-side-bar/subreddit-side-bar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PostComponent } from './components/post/post.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PostComponent } from './components/post/post.component';
     SideBarComponent,
     SubredditSideBarComponent,
     NavBarComponent,
-    PostComponent
+    PostComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
