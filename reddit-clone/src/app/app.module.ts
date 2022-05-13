@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { SubredditSideBarComponent } from './components/subreddit-side-bar/subreddit-side-bar.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { PostComponent } from './components/post/post.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { SideBarComponent } from './components/home-page/side-bar/side-bar.component';
+import { SubredditSideBarComponent } from './components/home-page/subreddit-side-bar/subreddit-side-bar.component';
+import { NavBarComponent } from './components/home-page/nav-bar/nav-bar.component';
+import { PostComponent } from './components/home-page/post/post.component';
+  import { LoginComponent } from './components/form/login/login.component';
+  import { RegistrationComponent } from './components/form/registration/registration.component';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     NavBarComponent,
     PostComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

@@ -8,13 +8,17 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  // btnClick = function(){
-  //   this.router.navigateByUrl("/login");
-  // };
+  loginClick (){
+    this.router.navigateByUrl("/login");
+  };
+
+  registrationClick (){
+    this.router.navigateByUrl("/registration");
+  };
 
 }
