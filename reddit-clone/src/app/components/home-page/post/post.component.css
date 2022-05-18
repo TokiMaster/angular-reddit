@@ -4,3 +4,19 @@
     justify-content: center;
     align-items: center;
 }
+
+.card{
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    width: 80%;
+}
+
+.thumbnail{
+    width: 150px;
+}
+/* .up{
+    color: green;
+}
+
+.down{
+color:red;
+} */

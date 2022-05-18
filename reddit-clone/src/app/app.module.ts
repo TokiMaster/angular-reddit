@@ -9,9 +9,11 @@ import { SideBarComponent } from './components/home-page/side-bar/side-bar.compo
 import { SubredditSideBarComponent } from './components/home-page/subreddit-side-bar/subreddit-side-bar.component';
 import { NavBarComponent } from './components/home-page/nav-bar/nav-bar.component';
 import { PostComponent } from './components/home-page/post/post.component';
-  import { LoginComponent } from './components/form/login/login.component';
-  import { RegistrationComponent } from './components/form/registration/registration.component';
+import { LoginComponent } from './components/form/login/login.component';
+import { RegistrationComponent } from './components/form/registration/registration.component';
 import { FormComponent } from './components/form/form.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FormComponent } from './components/form/form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
