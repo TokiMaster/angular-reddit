@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { userLoginDTO } from 'src/app/model/userLoginDTO';
+import { UserLoginDTO } from 'src/app/model/userLoginDTO';
 import { UserService } from 'src/app/service/user-service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user-service';
 })
 export class LoginComponent implements OnInit {
 
-  userLogin!: userLoginDTO;
+  userLogin!: UserLoginDTO;
   login!: FormGroup;
 
   constructor(
@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(){
-    
+    this.userLogin = new UserLoginDTO(this.login.value);
+    this.userService.login(this.userLogin).subscribe((token) => {this.router.navigateByUrl("/"); localStorage.setItem('jwt token',token)},
+    () => {window.alert('Invalid credentials!')})
   }
   
 }

@@ -11,14 +11,14 @@
                 <div class="card-body">
                     <form [formGroup]="register" class="form-horizontal" (submit)="onSubmit()">
                         <div class="form-group">
-                            <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                            <label for="displayName" class="cols-sm-2 control-label">Your Name</label>
                             <div class="cols-sm-10">
                                 <div class="form-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input formControlName="name" type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
-                                    <div *ngIf="register.controls.name.errors?.minlength && register.controls.name.touched" class="alert alert-danger">
+                                    <input formControlName="displayName" type="text" class="form-control" name="displayName" id="displayName" placeholder="Enter your Name" />
+                                    <div *ngIf="register.controls.displayName.errors?.minlength && register.controls.displayName.touched" class="alert alert-danger">
                                         Name must be at least 2 characters long</div>
-                                    <div *ngIf="register.controls.name.errors?.required && register.controls.name.touched" class="alert alert-danger">
+                                    <div *ngIf="register.controls.displayName.errors?.required && register.controls.displayName.touched" class="alert alert-danger">
                                         Field must not be empty</div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <button type="button" class="btnSubmit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                            <button type="submit" class="btnSubmit" class="btn btn-primary btn-lg btn-block login-button" [disabled]="!register.valid">Register</button>
                         </div>
                         <div class="login-register">
                             <a href="/login">Login</a>

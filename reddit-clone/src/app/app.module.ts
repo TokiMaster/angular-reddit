@@ -14,6 +14,8 @@ import { RegistrationComponent } from './components/form/registration/registrati
 import { FormComponent } from './components/form/form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreatePostComponent } from './components/home-page/create-post/create-post.component';
+import { CreateCommunityComponent } from './components/home-page/create-community/create-community.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostComponent,
     LoginComponent,
     RegistrationComponent,
-    FormComponent
+    FormComponent,
+    CreatePostComponent,
+    CreateCommunityComponent
   ],
   imports: [
     BrowserModule,
