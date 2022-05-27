@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllCommunitiesComponent } from './components/community/all-communities/all-communities.component';
 import { CommunityPageComponent } from './components/community/community-page/community-page.component';
 import { FormComponent } from './components/form/form.component';
 import { CreateCommunityComponent } from './components/home-page/create-community/create-community.component';
@@ -10,9 +11,10 @@ const routes: Routes =
 [{path: '', component: HomePageComponent},
 {path: 'login', component: FormComponent},
 {path: 'registration', component: FormComponent},
-{path: 'createPost', component: CreatePostComponent},
+{path: 'community/:id/createPost', component: CreatePostComponent},
 {path: 'createCommunity', component: CreateCommunityComponent},
-{path: 'community/:id', component: CommunityPageComponent}];
+{path: 'community/:id', component: CommunityPageComponent},
+{path: 'allCommunities', component: AllCommunitiesComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

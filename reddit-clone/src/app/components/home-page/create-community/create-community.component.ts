@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Community } from 'src/app/model/community';
+import { CreateCommunity } from 'src/app/model/createCommunity';
+import { communityService } from 'src/app/service/community.service';
 
 @Component({
   selector: 'app-create-community',
@@ -10,13 +11,14 @@ import { Community } from 'src/app/model/community';
 })
 export class CreateCommunityComponent implements OnInit {
 
-  community!: Community;
+  community!: CreateCommunity;
   createCommunity!: FormGroup;
 
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,) { 
+    private router: Router,
+    private communityService: communityService) { 
       this.createForm()
     }
 
@@ -26,12 +28,13 @@ export class CreateCommunityComponent implements OnInit {
 
   createForm(){
     this.createCommunity = this.fb.group({
-      'name' : new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      'description' : new FormControl(null, [Validators.required, Validators.minLength(10)])
+      'name' : new FormControl(null, [Validators.required]),
+      'description' : new FormControl(null, [Validators.required, Validators.minLength(5)])
     });
   }
 
   onSubmit(){
-
+    this.community = new CreateCommunity(this.createCommunity.value);
+    this.communityService.createCommunity(this.community).subscribe(() => this.router.navigateByUrl("/"))
   }
 }

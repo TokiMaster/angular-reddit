@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   createPostClick(){
-    this.router.navigateByUrl("/createPost")
+    this.route.paramMap.subscribe((params: ParamMap) => { let id = params.get('id') || ""; this.router.navigateByUrl(`community/${id}/createPost`)});
+    
   }
 
   createCommunityClick(){

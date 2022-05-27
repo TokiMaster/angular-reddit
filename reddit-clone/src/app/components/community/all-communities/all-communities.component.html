@@ -1,0 +1,13 @@
+<div *ngFor="let community of communities" class="container">
+    <div class="card">
+        <div class="card-body">
+        <span>{{community.creationDate}}</span>
+        <hr>
+        <h5 class="card-title">{{community.name}}</h5>
+        <p class="card-text">
+            {{community.description}}
+        </p>
+        <a href="community/{{community.id}}" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+</div>

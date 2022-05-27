@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreatePostComponent } from './components/home-page/create-post/create-post.component';
 import { CreateCommunityComponent } from './components/home-page/create-community/create-community.component';
 import { CommunityPageComponent } from './components/community/community-page/community-page.component';
+import { AllCommunitiesComponent } from './components/community/all-communities/all-communities.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CommunityPageComponent } from './components/community/community-page/co
     FormComponent,
     CreatePostComponent,
     CreateCommunityComponent,
-    CommunityPageComponent
+    CommunityPageComponent,
+    AllCommunitiesComponent
   ],
   imports: [
     BrowserModule,
