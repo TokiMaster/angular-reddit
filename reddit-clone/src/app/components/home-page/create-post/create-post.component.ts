@@ -26,7 +26,7 @@ export class CreatePostComponent implements OnInit {
 
   createForm(){
     this.createPost = this.fb.group({
-      'title' : new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      'title' : new FormControl(null, Validators.required),
       'text' : new FormControl(null, [Validators.required, Validators.minLength(10)])
     });
   }

@@ -1,8 +1,8 @@
 <div class="sidebar-view-subreddit">
     <div style="color: black; font-weight: bold">Browse Subreddits</div>
     <hr />
-    <span>
-        <span class="subreddit-text"><a href="#">subreddit</a></span>
+    <span *ngFor="let community of communities">
+        <span class="subreddit-text"><a href="community/{{community.id}}">{{community.name}}</a></span>
         <hr />
     </span>
     <div style="text-align: center" >

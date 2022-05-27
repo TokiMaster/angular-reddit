@@ -1,0 +1,11 @@
+<app-nav-bar></app-nav-bar>
+<div class="row">
+    <div *ngFor="let post of posts" class="col-md-9">
+      <app-post [post]="post"></app-post>
+    </div>
+    <div class="col-md-3">
+      <div style="position: fixed;">
+        <app-side-bar></app-side-bar>
+      </div>
+    </div>
+</div>

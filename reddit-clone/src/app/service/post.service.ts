@@ -8,11 +8,15 @@ import { Post } from '../model/post';
 })
 export class PostService {
 
-  private readonly path:string = "http://localhost:8080/api/posts";
+  private readonly path:string = "http://localhost:8080/api/";
 
   constructor(private http:HttpClient) { }
 
   getAll():Observable<Post[]>{
-    return this.http.get<Post[]>(this.path+"/all");
+    return this.http.get<Post[]>(this.path + 'posts');
+  }
+
+  getAllPostsByCommunityId(id:number):Observable<Post[]>{
+    return this.http.get<Post[]>(this.path + `communities/${id}/posts`)
   }
 }

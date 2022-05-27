@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Community } from 'src/app/model/community';
+import { communityService } from 'src/app/service/community.service';
 
 @Component({
   selector: 'app-subreddit-side-bar',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubredditSideBarComponent implements OnInit {
 
-  constructor() { }
+  communities: Community[] | undefined
+  
+  constructor(private communityService: communityService) { }
 
   ngOnInit(): void {
+    this.communityService.getAll().subscribe(communities => {this.communities = communities});
   }
 
 }
