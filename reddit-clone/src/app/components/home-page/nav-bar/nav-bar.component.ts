@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,17 +9,25 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  loginClick (){
+  loginClick(){
     this.router.navigateByUrl("/login");
   };
 
-  registrationClick (){
+  registrationClick(){
     this.router.navigateByUrl("/registration");
   };
+
+  loggedIn(): Boolean{
+    return this.auth.tokenIsPresent();
+  }
+
+  logout(){
+    return this.auth.logout();
+  }
 
 }

@@ -18,6 +18,7 @@ import { CreatePostComponent } from './components/home-page/create-post/create-p
 import { CreateCommunityComponent } from './components/home-page/create-community/create-community.component';
 import { CommunityPageComponent } from './components/community/community-page/community-page.component';
 import { AllCommunitiesComponent } from './components/community/all-communities/all-communities.component';
+import { httpInterceptorProviders } from './service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { AllCommunitiesComponent } from './components/community/all-communities/
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

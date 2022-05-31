@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CreateCommunity } from 'src/app/model/createCommunity';
+import { CreateCommunity } from 'src/app/model/CreateCommunity';
 import { communityService } from 'src/app/service/community.service';
 
 @Component({
