@@ -29,7 +29,7 @@ export class AuthService {
   getRoles() {
     let token = this.parseToken();
     if (token) {
-      return this.parseToken()['roles'];
+      return this.parseToken()['role'];
     }
     return []
   }
@@ -51,7 +51,6 @@ export class AuthService {
 
   getToken() {
     let token = localStorage.getItem('jwt token');
-    console.log(token)
     return token
   }
 }

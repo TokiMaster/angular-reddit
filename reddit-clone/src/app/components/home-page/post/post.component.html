@@ -7,7 +7,6 @@
     <i title="Down Votes" ng-click="changeVote(vote, 'down')" class="fa fa-arrow-circle-down fa-2x"  ng-class="{true:'down', false:''}[vote=='down']"></i>
   </div> -->
     <div class="card">
-      
       <div class="card-body">
         <span>{{post1.creationDate}}</span>
         <hr>
@@ -15,13 +14,17 @@
         <p class="card-text">
           {{post1.text}}
         </p>
-        
-        <a href="#" class="btn btn-primary">{{post1.username}}</a>
+        <div class="row align-items-center">
+          <div class="col-md-1">
+            <a href="#" class="btn btn-primary">{{post1.username}}</a>
+          </div>
+          <div class="col-md-9" *ngIf="isMyPost()">
+            <button type="submit" class="btn btn-danger" (click)="deletePost(post1.id)">Delete</button>
+          </div>
+        </div>
       </div>
-      
     </div>
 </div>
-
 
 
 <!-- <link data-require="fontawesome@*" data-semver="4.1.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />

@@ -27,8 +27,6 @@
                                 <div class="form-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                     <input formControlName="text" type="text" class="form-control" name="text" id="text" placeholder="Post description" />
-                                    <div *ngIf="createPost.controls.text.errors?.minlength && createPost.controls.text.touched" class="alert alert-danger">
-                                        Description must be at least 5 characters long</div>
                                     <div *ngIf="createPost.controls.text.errors?.required && createPost.controls.text.touched" class="alert alert-danger">
                                         Field must not be empty</div>
                                 </div>

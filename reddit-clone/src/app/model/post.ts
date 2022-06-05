@@ -1,4 +1,5 @@
 export class Post {
+    id:number;
     communityId:number;
     username:string;
     title:string;
@@ -6,6 +7,7 @@ export class Post {
     creationDate:Date;
 
     constructor(obj?: any){
+        this.id = obj && obj.id || null;
         this.communityId = obj && obj.communityId || null;
         this.username = obj && obj.username || null;
         this.title = obj && obj.title || null;

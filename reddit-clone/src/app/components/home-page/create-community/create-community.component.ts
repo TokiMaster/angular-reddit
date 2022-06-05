@@ -29,7 +29,7 @@ export class CreateCommunityComponent implements OnInit {
   createForm(){
     this.createCommunity = this.fb.group({
       'name' : new FormControl(null, [Validators.required]),
-      'description' : new FormControl(null, [Validators.required, Validators.minLength(5)])
+      'description' : new FormControl(null, [Validators.required])
     });
   }
 

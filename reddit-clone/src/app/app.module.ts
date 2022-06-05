@@ -19,6 +19,7 @@ import { CreateCommunityComponent } from './components/home-page/create-communit
 import { CommunityPageComponent } from './components/community/community-page/community-page.component';
 import { AllCommunitiesComponent } from './components/community/all-communities/all-communities.component';
 import { httpInterceptorProviders } from './service';
+import { Guard } from './guards/guard';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { httpInterceptorProviders } from './service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, Guard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

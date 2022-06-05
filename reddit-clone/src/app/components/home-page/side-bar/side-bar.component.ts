@@ -16,19 +16,12 @@ export class SideBarComponent implements OnInit {
   }
 
   createPostClick(){
-    if(!this.loggedIn()){
-      this.router.navigateByUrl("/login")
-    }else{
-      this.route.paramMap.subscribe((params: ParamMap) => { let id = params.get('id') || ""; this.router.navigateByUrl(`community/${id}/createPost`)});
-    }
+    console.log(this.auth.getUsername(), this.auth.getRoles())
+    this.route.paramMap.subscribe((params: ParamMap) => { let id = params.get('id') || ""; this.router.navigateByUrl(`community/${id}/createPost`)});
   }
 
   createCommunityClick(){
-    if(!this.loggedIn()){
-      this.router.navigateByUrl("/login")
-    }else{
-      this.router.navigateByUrl("/createCommunity")
-    }
+    this.router.navigateByUrl("/createCommunity")
   }
 
   loggedIn(): Boolean{

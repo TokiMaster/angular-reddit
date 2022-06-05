@@ -24,4 +24,8 @@ export class PostService {
   createPost(post:CreatePost):Observable<CreatePost>{
     return this.http.post<CreatePost>(this.path + 'posts', post);
   }
+
+  deletePost(id:number){
+    return this.http.delete<Post>(this.path+ `posts/${id}`);
+  }
 }
