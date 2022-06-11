@@ -12,8 +12,10 @@ export class Guard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if(this.auth.getRoles() === "ROLE_USER" || "ROLE_MODERATOR" || "ROLE_ADMIN"){
-        return true;
+      if(this.auth.tokenIsPresent()){
+        if(this.auth.getRoles() === "ROLE_USER" || "ROLE_MODERATOR" || "ROLE_ADMIN"){
+          return true;
+        }
       }
       return false;
   }

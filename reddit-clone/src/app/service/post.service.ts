@@ -25,7 +25,7 @@ export class PostService {
     return this.http.post<CreatePost>(this.path + 'posts', post);
   }
 
-  deletePost(id:number){
-    return this.http.delete<Post>(this.path+ `posts/${id}`);
+  deletePost(id:number): Observable<any>{
+    return this.http.delete(this.path+ `posts/${id}`, {responseType:'text'});
   }
 }

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div *ngIf="post1" class="container">
   <!-- <div class="col-md-1">
     <i title="Up Votes" ng-click="changeVote(vote, 'up')" class="fa fa-arrow-circle-up fa-2x" ng-class="{true:'up', false:''}[vote=='up']"></i>
@@ -6,71 +7,32 @@
     <br>
     <i title="Down Votes" ng-click="changeVote(vote, 'down')" class="fa fa-arrow-circle-down fa-2x"  ng-class="{true:'down', false:''}[vote=='down']"></i>
   </div> -->
-    <div class="card">
-      <div class="card-body">
-        <span>{{post1.creationDate}}</span>
-        <hr>
-        <h5 class="card-title">{{post1.title}}</h5>
-        <p class="card-text">
-          {{post1.text}}
-        </p>
-        <div class="row align-items-center">
-          <div class="col-md-1">
-            <a href="#" class="btn btn-primary">{{post1.username}}</a>
-          </div>
-          <div class="col-md-9" *ngIf="isMyPost()">
-            <button type="submit" class="btn btn-danger" (click)="deletePost(post1.id)">Delete</button>
-          </div>
+  <div class="card">
+    <div class="card-body">
+      <span>{{post1.creationDate}}</span>
+      <hr>
+      <h5 class="card-title">{{post1.title}}</h5>
+      <p class="card-text">
+        {{post1.text}}
+      </p>
+      <div class="row align-items-center">
+        <div class="col-md-1">
+          <button class="fas fa-arrow-up"></button>
+          <!-- <img src="assets/upvote.svg"> -->
+        </div>
+        <div>
+          Karma:
+        </div>
+        <div class="col-md-1">
+          <button class="fas fa-arrow-down"></button>
+        </div>
+        <div class="col-md-1">
+          <a href="#" class="btn btn-primary">{{post1.username}}</a>
+        </div>
+        <div class="col-md-9" *ngIf="isMyPost()">
+          <button type="button" class="btn btn-danger" (click)="deletePost(post1.id)">Delete</button>
         </div>
       </div>
     </div>
-</div>
-
-
-<!-- <link data-require="fontawesome@*" data-semver="4.1.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
-<script>
-  document.write('<base href="' + document.location + '" />');
-</script>
-<link rel="stylesheet" href="post.component.css" />
-<script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script> -->
-
-<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<!-- <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- <div *ngIf="post1" class="container">
-  <div class="card">
-    <div class="row">
-      <div class="span8">
-        <h4><strong><a href="#">{{post1.title}}</a></strong></h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span2">
-        <a href="#" class="thumbnail">
-            <img src="https://i.redd.it/jeuusd992wd41.jpg" alt="">
-        </a>
-      </div>
-      <div class="span6">      
-        <p>
-          {{post1.text}}
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span8">
-        <p></p>
-        <p>
-          <i class="icon-user"></i> by <a href="#">{{post1.displayName}}</a> 
-          | <i class="icon-calendar"></i> {{post1.creationDate}}
-          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a> 
-          <a href="#"><span class="label label-info">Bootstrap</span></a> 
-          <a href="#"><span class="label label-info">UI</span></a> 
-          <a href="#"><span class="label label-info">growth</span></a>
-        </p>
-      </div>
-    </div>
   </div>
-</div> -->
+</div>
