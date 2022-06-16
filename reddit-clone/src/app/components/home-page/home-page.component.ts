@@ -26,4 +26,11 @@ export class HomePageComponent implements OnInit {
     this.posts = this.posts.filter((data) => data.id != id)
   }
 
+  upvoteChange(event: any){
+    this.getAllPosts()
+  }
+
+  downvoteChange(event: any){
+    this.getAllPosts()
+  }
 }

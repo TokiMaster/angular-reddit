@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
 import { reactionDTO } from 'src/app/model/reactionDTO';
 import { AuthService } from 'src/app/service/auth.service';
@@ -17,7 +18,13 @@ export class PostComponent implements OnInit {
   @Output()
   valueChange = new EventEmitter<number>();
 
-  constructor(private postService: PostService, private auth: AuthService) { }
+  @Output()
+  upvoteChange = new EventEmitter<boolean>();
+
+  @Output()
+  downvoteChange = new EventEmitter<boolean>();
+
+  constructor(private postService: PostService, private auth: AuthService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -44,11 +51,29 @@ export class PostComponent implements OnInit {
     }
   }
 
+  loggedIn(): Boolean{
+    return this.auth.tokenIsPresent();
+  }
+
   upvote(id:number, reaction:string){
-    this.postService.upvote(new reactionDTO(reaction, id)).subscribe();
+    if(!this.loggedIn()){
+      this.router.navigateByUrl("login")
+    }else{
+      this.postService.upvote(new reactionDTO(reaction, id)).subscribe({
+        next: (data) => this.upvoteChange.emit(true),
+        error: (err) => alert("Already upvoted")
+        });
+    }
   }
 
   downvote(id:number, reaction:string){
-    this.postService.upvote(new reactionDTO(reaction, id)).subscribe();
+    if(!this.loggedIn()){
+      this.router.navigateByUrl("login")
+    }else{
+    this.postService.upvote(new reactionDTO(reaction, id)).subscribe({
+      next: (data) => this.downvoteChange.emit(true),
+      error: (err) => alert("Already downvoted")
+      });
+    }
   }
 }
