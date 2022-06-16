@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../model/post';
 import { CreatePost } from '../model/CreatePost';
+import { reactionDTO } from '../model/reactionDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,13 @@ export class PostService {
 
   deletePost(id:number): Observable<any>{
     return this.http.delete(this.path+ `posts/${id}`, {responseType:'text'});
+  }
+
+  upvote(post:reactionDTO):Observable<reactionDTO>{
+    return this.http.post<reactionDTO>(this.path + `posts/${post.postID}/vote`, post);
+  }
+
+  downvote(post:reactionDTO):Observable<reactionDTO>{
+    return this.http.post<reactionDTO>(this.path + `posts/${post.postID}/vote`, post);
   }
 }

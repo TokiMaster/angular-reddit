@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Post } from 'src/app/model/post';
+import { reactionDTO } from 'src/app/model/reactionDTO';
 import { AuthService } from 'src/app/service/auth.service';
 import { PostService } from 'src/app/service/post.service';
 
@@ -34,11 +35,20 @@ export class PostComponent implements OnInit {
   }
   
   deletePost(id:number){
-    confirm("Are you sure you want to delete this post?")
-    this.valueChange.emit(id)
-    this.postService.deletePost(id).subscribe({
-      next: (data) => console.log(data),
-      error: (err) => console.log(err)
-      });
+    if(confirm("Are you sure you want to delete this post?") == true){
+      this.valueChange.emit(id)
+      this.postService.deletePost(id).subscribe({
+        next: (data) => console.log(data),
+        error: (err) => console.log(err)
+        });
+    }
+  }
+
+  upvote(id:number, reaction:string){
+    this.postService.upvote(new reactionDTO(reaction, id)).subscribe();
+  }
+
+  downvote(id:number, reaction:string){
+    this.postService.upvote(new reactionDTO(reaction, id)).subscribe();
   }
 }

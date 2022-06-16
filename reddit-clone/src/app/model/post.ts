@@ -5,6 +5,7 @@ export class Post {
     title:string;
     text:string;
     creationDate:Date;
+    karma:number;
 
     constructor(obj?: any){
         this.id = obj && obj.id || null;
@@ -13,5 +14,6 @@ export class Post {
         this.title = obj && obj.title || null;
         this.text = obj && obj.text || null;
         this.creationDate = obj && obj.creationDate || null;
+        this.karma = obj && obj.karma || null;
     }
 }
