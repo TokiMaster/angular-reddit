@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Post } from '../model/post';
 import { CreatePost } from '../model/CreatePost';
 import { reactionDTO } from '../model/reactionDTO';
+import { UpdatePost } from '../model/UpdatePost';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,13 @@ export class PostService {
 
   downvote(post:reactionDTO):Observable<reactionDTO>{
     return this.http.post<reactionDTO>(this.path + `posts/${post.postID}/vote`, post);
+  }
+
+  editPost(id:number, post: UpdatePost): Observable<any>{
+    return this.http.put(this.path + `posts/${id}`, post);
+  }
+
+  getOnePost(id: number): Observable<Post>{
+    return this.http.get<Post>(this.path + `posts/${id}`);
   }
 }

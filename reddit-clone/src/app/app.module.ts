@@ -20,7 +20,7 @@ import { CommunityPageComponent } from './components/community/community-page/co
 import { AllCommunitiesComponent } from './components/community/all-communities/all-communities.component';
 import { httpInterceptorProviders } from './service';
 import { Guard } from './guards/guard';
-import { MyProfileComponent } from './components/home-page/my-profile/my-profile.component';
+import { EditPostComponent } from './components/home-page/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { MyProfileComponent } from './components/home-page/my-profile/my-profile
     CreateCommunityComponent,
     CommunityPageComponent,
     AllCommunitiesComponent,
-    MyProfileComponent
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,

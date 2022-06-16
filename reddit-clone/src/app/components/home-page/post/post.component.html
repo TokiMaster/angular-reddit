@@ -21,8 +21,11 @@
         <div class="col-md-1">
           <a href="#" class="btn btn-primary">{{post1.username}}</a>
         </div>
-        <div class="col-md-9" *ngIf="isMyPost()">
+        <div class="col-md-1" *ngIf="isMyPost()">
           <button type="button" class="btn btn-danger" (click)="deletePost(post1.id)">Delete</button>
+        </div>
+        <div class="col-md-3" *ngIf="isMyPost()">
+          <a href="editPost/{{post1.id}}" type="button" class="btn btn-warning">Edit</a>
         </div>
       </div>
     </div>

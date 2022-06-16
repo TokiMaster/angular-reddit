@@ -47,7 +47,7 @@ export class PostComponent implements OnInit {
       this.postService.deletePost(id).subscribe({
         next: (data) => console.log(data),
         error: (err) => console.log(err)
-        });
+      });
     }
   }
 
@@ -62,7 +62,7 @@ export class PostComponent implements OnInit {
       this.postService.upvote(new reactionDTO(reaction, id)).subscribe({
         next: (data) => this.upvoteChange.emit(true),
         error: (err) => alert("Already upvoted")
-        });
+      });
     }
   }
 
@@ -70,9 +70,9 @@ export class PostComponent implements OnInit {
     if(!this.loggedIn()){
       this.router.navigateByUrl("login")
     }else{
-    this.postService.upvote(new reactionDTO(reaction, id)).subscribe({
-      next: (data) => this.downvoteChange.emit(true),
-      error: (err) => alert("Already downvoted")
+      this.postService.upvote(new reactionDTO(reaction, id)).subscribe({
+        next: (data) => this.downvoteChange.emit(true),
+        error: (err) => alert("Already downvoted")
       });
     }
   }
